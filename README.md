@@ -1,99 +1,110 @@
-# Sports Media Guardian AI (Winning Upgrade)
+🛡️ Sports Media Guardian AI
 
-A hackathon-ready, GitHub-ready backend for protecting the integrity of digital sports media.
+Protecting the Integrity of Digital Sports Media
 
-This upgraded version adds:
-- multi-signal image matching,
-- semantic embedding fallback layer,
-- video keyframe analysis,
-- provenance manifest generation,
-- explainable incident scoring,
-- benchmark endpoint,
-- discovery provider abstraction,
-- watermark adapter hooks for Meta Seal / VideoSeal / Watermark Anything / AudioSeal.
+🚀 AI-powered system to detect, track, and flag unauthorized usage of official sports media across the internet.
 
-## Why judges will care
-This is not only a copy detector. It is an **authenticity + propagation intelligence** system.
+---
 
-## Feature highlights
-- Register official images/videos.
-- Generate hashes and local features.
-- Apply visible watermark.
-- Build provenance manifests.
-- Upload suspicious media or suspicious URLs.
-- Run similarity matching across official assets.
-- Create explainable incidents with recommended actions.
-- Benchmark robustness across edited variants.
+🔥 Problem
 
-## Quick start
-```bash
-cp .env.example .env
-python -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-uvicorn app.main:app --reload
-```
+Sports media spreads rapidly across platforms, leading to:
 
-Open docs:
-```bash
-http://127.0.0.1:8000/docs
-```
+- Unauthorized redistribution
+- Content piracy
+- Brand misuse
+- Revenue loss
 
-## Demo flow
-1. Register an official asset using `/api/v1/assets/register`
-2. Upload suspicious evidence using `/api/v1/scans/upload-evidence`
-3. Match the evidence using `/api/v1/scans/match-evidence/{evidence_id}`
-4. Review incidents via `/api/v1/incidents`
-5. Run `/api/v1/benchmarks/asset/{asset_id}` to show robustness story
+---
 
-## Endpoints overview
+💡 Solution
 
-### Assets
-- `POST /api/v1/assets/register`
-- `GET /api/v1/assets`
-- `GET /api/v1/assets/{asset_id}`
+We built an intelligent system that:
 
-### Evidence / scanning
-- `POST /api/v1/scans/upload-evidence`
-- `POST /api/v1/scans/ingest-url`
-- `POST /api/v1/scans/match-evidence/{evidence_id}`
-- `GET /api/v1/scans/evidence`
+✅ Authenticates media at source
+✅ Generates digital fingerprints
+✅ Detects unauthorized copies
+✅ Tracks content propagation
+✅ Provides explainable evidence
 
-### Incidents
-- `GET /api/v1/incidents`
-- `GET /api/v1/incidents/{incident_id}`
+---
 
-### Dashboard
-- `GET /api/v1/dashboard/summary`
+⚙️ Core Features
 
-### Benchmarks
-- `POST /api/v1/benchmarks/asset/{asset_id}`
+- 🔐 SHA-256 + Perceptual Hashing
+- 🎥 Video Keyframe Detection
+- 🧠 Multi-signal AI Matching
+- 🧾 Provenance Manifest
+- 📊 Explainable Incident Scoring
+- 🛡️ Watermark Integration (Visible + Invisible)
 
-## Important honesty note
-This repo contains a strong, working core engine. Fully internet-wide scanning needs external feeds, search providers, or platform APIs. The codebase is already structured for that using provider adapters.
+---
 
-## Real-world inspiration
-OpenCV's `img_hash` module exists specifically for image hashing and large-scale similar-image retrieval, while Meta's open-source watermarking tools such as VideoSeal and Meta Seal strengthen robust authentication and attribution workflows. citeturn999326search0turn999326search2turn999326search1
+🧠 AI Engine
 
-## Folder structure
-```text
-sports-media-guardian-v2/
-├── app/
-│   ├── api/
-│   ├── core/
-│   ├── db/
-│   ├── models/
-│   ├── schemas/
-│   ├── services/
-│   ├── utils/
-│   └── main.py
-├── scripts/
-├── sample_data/
-├── data/
-├── .env.example
-├── requirements.txt
-├── Dockerfile
-├── docker-compose.yml
-├── README.md
-└── ARCHITECTURE.md
-```
+- Image similarity detection
+- Feature-based matching (ORB)
+- Transformation detection (crop, blur, resize)
+- Confidence scoring
+
+---
+
+🏗️ Architecture
+
+User → Upload Media  
+       ↓  
+Fingerprint Engine  
+       ↓  
+Detection Pipeline  
+       ↓  
+AI Matching Engine  
+       ↓  
+Incident Generator  
+       ↓  
+Dashboard / API
+
+---
+
+🚀 Demo Flow
+
+1. Register official media
+2. Upload suspicious content
+3. Run similarity detection
+4. Generate incident report
+5. View explainable results
+
+---
+
+🎯 Impact
+
+- Helps sports organizations protect IP
+- Detects piracy in near real-time
+- Enables legal enforcement
+- Builds trust in digital media
+
+---
+
+🧩 Future Scope
+
+- Social media API integration
+- Real-time web crawling
+- AI-based tamper detection
+- Automated takedown system
+
+---
+
+⚡ Tech Stack
+
+- FastAPI
+- OpenCV
+- Python
+- SQLite
+- FFmpeg
+
+---
+
+🏆 Hackathon Ready
+
+«“We don’t just detect copies — we authenticate, track, and prove ownership.”»
+
+---
