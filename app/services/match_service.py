@@ -17,9 +17,9 @@ class MatchService:
     def compare(self, asset, evidence) -> dict:
         scorecard = {
             "sha256_exact": 1.0 if asset.sha256 and evidence.sha256 and asset.sha256 == evidence.sha256 else 0.0,
-            "ahash_similarity": self.fingerprint.compare_hash(asset.ahash, evidence.ahash),
-            "dhash_similarity": self.fingerprint.compare_hash(asset.dhash, evidence.dhash),
-            "phash_similarity": self.fingerprint.compare_hash(asset.phash, evidence.phash),
+            "ahash_similarity": self.fingerprint.compare_hash(asset.ahash, evidence.ahash) if asset.colorhash and evidence.colorhash else 0,
+            "dhash_similarity": self.fingerprint.compare_hash(asset.dhash, evidence.dhash) if asset.colorhash and evidence.colorhash else 0,
+            "phash_similarity": self.fingerprint.compare_hash(asset.phash, evidence.phash) if asset.colorhash and evidence.colorhash else 0,
             "colorhash_similarity": self.fingerprint.compare_hash(asset.colorhash, evidence.colorhash) if asset.colorhash and evidence.colorhash else 0,
             "histogram_similarity": self.fingerprint.compare_histograms(asset.histogram_signature, evidence.histogram_signature),
             "orb_similarity": self.fingerprint.compare_orb(asset.orb_descriptor_path, evidence.orb_descriptor_path),
