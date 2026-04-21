@@ -20,7 +20,7 @@ class MatchService:
             "ahash_similarity": self.fingerprint.compare_hash(asset.ahash, evidence.ahash),
             "dhash_similarity": self.fingerprint.compare_hash(asset.dhash, evidence.dhash),
             "phash_similarity": self.fingerprint.compare_hash(asset.phash, evidence.phash),
-            "colorhash_similarity": self.fingerprint.compare_hash(asset.colorhash, evidence.colorhash),
+            "colorhash_similarity": self.fingerprint.compare_hash(asset.colorhash, evidence.colorhash) if asset.colorhash and evidence.colorhash else 0,
             "histogram_similarity": self.fingerprint.compare_histograms(asset.histogram_signature, evidence.histogram_signature),
             "orb_similarity": self.fingerprint.compare_orb(asset.orb_descriptor_path, evidence.orb_descriptor_path),
             "semantic_similarity": self.embedding.cosine_similarity(asset.semantic_signature, evidence.semantic_signature),
